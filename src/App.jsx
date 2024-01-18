@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import ReactDOM from 'react-dom'
 
-function App() {
-  const [count, setCount] = useState(0)
+import Card from './components/Card';
+import Collapse from './components/Collapse';
+
+
+const App = () => {
+
+  console.log("app");
+  console.log(this);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    {console.log("qqwww")}
+    {console.log(this)}
+    <div className="container">
+
+      <div className="row">
+
+        <div className="card-group w-100">
+
+          <div className="col">
+
+            <Collapse href="collapseExample1">
+              <Card
+                cardText="Lorem Ipsum Text I"
+                updatedTime="Last Updated 1 min ago"
+                image="https://picsum.photos/id/237/200/300"
+              />
+            </Collapse>
+
+          </div>
+
+          <div className="col">
+
+            <Collapse href="collapseExample2">
+              <Card
+                cardTitle="TEST TITLEX"
+                cardText="Lorem Ipsum Text II"
+                updatedTime="Last Updated 2 min ago"
+                image="https://picsum.photos/seed/picsum/200/300"
+              />
+            </Collapse>
+
+          </div>
+
+          <div className="col">
+
+            <Collapse href="collapseExample3">
+              <Card
+
+                cardText="Lorem Ipsum Text III"
+                updatedTime="Last Updated 3 min ago"
+                image="https://picsum.photos/200/300?grayscale"
+              />
+            </Collapse>
+
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    </div>
     </>
-  )
+  );
 }
 
 export default App
