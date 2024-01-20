@@ -1,28 +1,38 @@
-// ilk constructor --> state initialization
-// render metodu ilk defa calisti
-// onClick eventi çalıştı
-// setState state nesnesini guncelledi --> triggered render
-// render metodu guncel JSX i sayfada gosteriyor
+import React, { useEffect, useRef } from 'react';
 
-import React from 'react';
-import Card from './Card';
-import { useState } from 'react';
+//useRef() kullanarak yaptıgim birkac deneme
 
-const Collapse = () => { 
+const Collapse = () => {
 
-    const [show,setShow] = useState(false)
+    useEffect(()=>{
+     console.log("render edildi mi?")   
+    })
 
-    const button_ = () => {
-        setShow(prev => prev == false ? true : false);
+    const inputRef = useRef();
+    console.log(inputRef)
+
+    const typeSomething = () => {
+        console.log(inputRef)
+        console.log(inputRef.current) // referansı inputRef olan html elementine eriştik
+        inputRef.current.value = inputRef.current.value + "ozan"
+        console.log(inputRef.current.value)
     }
 
-        return (
-            <div>
-                <button type='button' onClick={button_}>buttonNaME</button>
-                {show && <Card></Card>}
-            </div>
-        );
-    
+    const changedtext = (e) => {
+        console.log(e.target); // event hangi html elementinde gerçekleşti?
+        console.log(e.target.value); // eventin gerçekleştiği html elementinin value değeri
+        
+    }
+
+    return (
+        <>
+        <input type="text" ref={inputRef} id="i_1" onChange={changedtext} />
+        <button type='button' onClick={typeSomething}>
+            Button
+        </button>
+        </>
+    );
+
 };
 
 export default Collapse;
