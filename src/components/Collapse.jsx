@@ -5,66 +5,24 @@
 // render metodu guncel JSX i sayfada gosteriyor
 
 import React from 'react';
+import Card from './Card';
+import { useState } from 'react';
 
-class Collapse extends React.Component {
+const Collapse = () => { 
 
-    constructor(){
-        super();
-        this.state = {
-            showContent: false
-        }
+    const [show,setShow] = useState(false)
+
+    const button_ = () => {
+        setShow(prev => prev == false ? true : false);
     }
-
-
-    showMore = () => {
-        this.setState({ showContent: !this.state.showContent })
-    }
-
-
-    deneme(){
-        console.log('denemeyegirdi')
-        console.log(this)
-    }
-
-
-/*     componentDidMount() {
-        console.log('Component Olusturuldu')
-    }
-
-    componentDidUpdate() {
-        console.log('Component Guncellendi')
-    } */
-
-    render() {
-
 
         return (
             <div>
-                <button className="btn btn-primary w-100" onClick={this.showMore}>
-
-
-                    {/*{this.props.children.props.cardTitle} */}
-
-                    {React.Children.map(this.props.children, children => children.props.cardTitle)}
-                </button>
-
-                {
-                    this.state.showContent ? (
-                        <div className="collapse show">
-
-                            {/*{this.props.children}*/}
-                            {React.Children.map(this.props.children, children => {
-                                console.log(children)
-                                return children
-                                })}
-                        </div>
-                    ) : null
-                }
-
+                <button type='button' onClick={button_}>buttonNaME</button>
+                {show && <Card></Card>}
             </div>
         );
-    }
-
+    
 };
 
 export default Collapse;

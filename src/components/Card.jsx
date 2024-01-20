@@ -1,29 +1,59 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-//Deneme-2
-class Card extends React.Component {
+import React, { useEffect } from 'react';
+import axios from 'axios'
+import { useState } from 'react';
 
-  static defaultProps = {
-    cardTitle: "Default Card Title"
+const Card = () => {
+
+  useEffect(()=> {
+    console.log("render edildi")
+  })
+
+  useEffect(() => {
+    console.log("component olustu")
+
+    return () => {
+      console.log("component destroy edildi")
+    }
+  },[])
+
+  console.log("ss")
+
+  const [data,setData] = useState({
+    yak:"muh"
+  });
+
+  const getDataFromAPI = async () => {
+
+    let data_ = await axios.get("https://dog.ceo/api/breeds/image/random").then((response) => response.data);
+
+
+    console.log(data_)
+
+    setData((prev) => ({ 
+      yak:prev.yak + data_.message +""
+   }))
+
+   console.log("2222")
+    console.log(data)
   }
 
-  render() {
+  useEffect(() => {
+    console.log("state degisti");
+  },[data])
 
-    return (
-      <div className="card w-100">
-        <img src={this.props.image} className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h5 className="card-title">{this.props.cardTitle}</h5>
-          <p className="card-text">{this.props.cardText}</p>
-          <p className="card-text"><small className="text-muted">{this.props.updatedTime}</small></p>
-        </div>
-      </div>
-    );
-  }
+
+  return (
+    <>
+    <div>
+      {data.yak}
+    </div>
+    <div>
+      <button type='button' onClick={getDataFromAPI}>
+        buton name
+      </button>
+    </div>
+    </>
+  )
 }
 
-Card.propTypes = {
-  cardText: PropTypes.string.isRequired
-}
-
-export default Card;
+export default Card
