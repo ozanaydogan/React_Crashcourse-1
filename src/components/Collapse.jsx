@@ -8,7 +8,9 @@ const Collapse = () => {
      console.log("render edildi mi?")   
     })
 
-    const inputRef = useRef();
+    const inputRef = useRef("ozan"); /*useRef(null), useRef("ozan") gibi değerler alabilir. 
+    //burda parametre olarak verilen değer inputRef'in dom'da atandığı elemanı referans olarak göstermeden
+    //önce  ilk aldığı değerdir.*/
     console.log(inputRef)
 
     const typeSomething = () => {
