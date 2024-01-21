@@ -1,12 +1,12 @@
 import React from 'react';
-import ControlChildrens from './components/ControlChildrens';
+import Card from './components/Card';
 
 //forwardRef ve useImperativeHandle denemelerim
 const App = () => {
 
   return (
-    <ControlChildrens/>
-  );
+    <Card/>
+  )
 }
 
 export default App
