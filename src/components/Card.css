@@ -1,0 +1,32 @@
+.containerr{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around
+}
+
+.containerr .card{
+    box-shadow: 2px 5px 25px red;
+    border-color: blue;
+    border-width: 5px;
+}
+
+.card-content{
+    max-width: 250px;
+    margin: 3px;
+    border-width: 5px;
+    border-color: pink;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.card_1{
+    color: rgb(115, 165, 58);
+}
+
+.card_2{
+    color:rgb(106, 0, 206);
+}
+
+.card_3{
+    color:rgb(221, 7, 7);
+}

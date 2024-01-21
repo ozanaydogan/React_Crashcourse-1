@@ -1,28 +1,11 @@
 import React from 'react';
+import ControlChildrens from './components/ControlChildrens';
 
-import Card from './components/Card';
-import Collapse from './components/Collapse';
-
-
+//forwardRef ve useImperativeHandle denemelerim
 const App = () => {
 
   return (
-    <>
-      <div className="container">
-
-        <div className="row">
-
-          <div className="card-group w-100">
-
-            <div className="col">
-              <Card/>
-              <hr />
-              <Collapse/>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <ControlChildrens/>
   );
 }
 
