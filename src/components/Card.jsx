@@ -44,6 +44,7 @@ const Card = () => {
 
   return (
     <>
+    {console.log("asdasd")}
     <div>
       {data.yak}
     </div>
