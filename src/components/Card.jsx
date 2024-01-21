@@ -30,7 +30,7 @@ const Card = () => {
     console.log(data_)
 
     setData((prev) => ({ 
-      yak:prev.yak + data_.message +""
+      yak:prev.yak + data_.message +" "
    }))
 
    console.log("2222")
@@ -38,7 +38,13 @@ const Card = () => {
   }
 
   useEffect(() => {
-    console.log("state degisti");
+    console.log("????state degisti");
+    console.log(data)
+    console.log("state degisti???");
+
+    return () =>{
+      console.log("dependency'li useeffectin cleari")
+    }
   },[data])
 
 
