@@ -1,29 +1,41 @@
-import React from 'react';
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
 
-import Card from './components/Card';
-import Collapse from './components/Collapse';
+import { Navbar } from './app/Navbar'
 
+import { PostsList } from './feature/posts/PostsList'
+import { AddPostForm } from './feature/posts/AddPostForm'
+import { EditPostForm } from './feature/posts/EditPostForm'
+import { SinglePostPage } from './feature/posts/SinglePostPage'
 
-const App = () => {
-
+function App() {
   return (
-    <>
-      <div className="container">
-
-        <div className="row">
-
-          <div className="card-group w-100">
-
-            <div className="col">
-              <Card/>
-              <hr />
-              <Collapse/>
-            </div>
-          </div>
-        </div>
+    <Router>
+      <Navbar />
+      <div className="App">
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <React.Fragment>
+                <AddPostForm />
+                <PostsList />
+              </React.Fragment>
+            )}
+          />
+          <Route exact path="/posts/:postId" component={SinglePostPage} />
+          <Route exact path="/editPost/:postId" component={EditPostForm} />
+          <Redirect to="/" />
+        </Switch>
       </div>
-    </>
-  );
+    </Router>
+  )
 }
 
 export default App
