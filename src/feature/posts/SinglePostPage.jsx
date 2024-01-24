@@ -6,7 +6,13 @@ import { PostAuthor } from './PostAuthor'
 import { TimeAgo } from './TimeAgo'
 import { ReactionButtons } from './ReactionButtons'
 
-export const SinglePostPage = ({ match }) => {
+export const SinglePostPage = (props) => {
+  console.log("SinglePostPage")
+  let {match} = props;
+  console.log(props)
+  console.log(match)
+  console.log("SinglePostPage")
+
   const { postId } = match.params
 
   const post = useSelector((state) =>

@@ -4,7 +4,15 @@ import { useHistory } from 'react-router-dom'
 import { postUpdated } from './PostsSlice'
 
 
-export const EditPostForm = ({ match }) => {
+export const EditPostForm = (props) => {
+  
+
+  console.log("editPostForm")
+  let {match} = props
+  console.log(props)
+  console.log(match)
+  console.log("editPostForm")
+
   const { postId } = match.params
 
   const post = useSelector((state) =>
