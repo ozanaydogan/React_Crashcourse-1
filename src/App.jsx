@@ -16,7 +16,6 @@ import { SinglePostPage } from './feature/posts/SinglePostPage'
 function App() {
   return (
     <Router>
-      <Navbar />
       <div className="App">
         <Switch>
           <Route
@@ -24,13 +23,10 @@ function App() {
             path="/"
             render={() => (
               <React.Fragment>
-                <AddPostForm />
-                <PostsList />
+                //
               </React.Fragment>
             )}
           />
-          <Route exact path="/posts/:postId" component={SinglePostPage} />
-          <Route exact path="/editPost/:postId" component={EditPostForm} />
           <Redirect to="/" />
         </Switch>
       </div>
